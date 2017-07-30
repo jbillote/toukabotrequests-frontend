@@ -35,7 +35,7 @@ export default class RequestPage extends React.Component {
         this.serverRequest =
             axios
                 .post(
-                    Endpoint.ToukaBotRequests + '/request',
+                    '/api/requests',
                     JSON.stringify(request)
                 )
                 .then(function(response) {

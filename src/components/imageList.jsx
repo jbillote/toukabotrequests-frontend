@@ -45,7 +45,7 @@ export default class ImageList extends React.Component {
     populateImages(command) {
         this.serverRequest =
             axios
-                .get(Endpoints.ToukaBot + '/images/' + command)
+                .get('/api/bot/images/' + command)
                 .then(function(response) {
                     var imageUrls = [];
 

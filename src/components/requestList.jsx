@@ -13,7 +13,7 @@ class RequestListRow extends React.Component {
     approveRequest() {
         this.serverRequest =
             axios
-                .post(Endpoints.ToukaBotRequests + '/request/approve',
+                .post('/api/requests/approve',
                     JSON.stringify(this.props.request))
                 .then(function(response) {
                     if (response.data.success) {
@@ -35,7 +35,7 @@ class RequestListRow extends React.Component {
         this.serverRequest =
             axios({
                 method: 'delete',
-                url: Endpoints.ToukaBotRequests + '/request/decline',
+                url: '/api/requests/decline',
                 data: JSON.stringify(this.props.request)
             }).then(function(response) {
                 if (response.data.success) {
@@ -96,7 +96,7 @@ export default class RequestList extends React.Component {
     componentDidMount() {
         this.serverRequest =
             axios
-                .get(Endpoints.ToukaBotRequests + '/requests')
+                .get('/api/requests')
                 .then(function(response) {
                     var requests = [];
 
