@@ -1,7 +1,5 @@
 'use strict';
 
-import Endpoints from '../constants/endpoints';
-
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import React from 'react';

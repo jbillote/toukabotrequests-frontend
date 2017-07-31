@@ -1,7 +1,5 @@
 'use strict';
 
-import Endpoints from '../constants/endpoints';
-
 import React from 'react';
 import axios from 'axios';
 

@@ -2,7 +2,6 @@
 
 import Button from '../components/button.jsx';
 
-import Endpoints from '../constants/endpoints';
 import Responses from '../constants/requestResponse'
 
 import axios from 'axios';
@@ -14,7 +13,7 @@ class RequestListRow extends React.Component {
         this.serverRequest =
             axios
                 .post('/api/requests/approve',
-                    JSON.stringify(this.props.request))
+                    this.props.request)
                 .then(function(response) {
                     if (response.data.success) {
                         this.props.changeStatusText(Responses.approveSuccess);
@@ -36,7 +35,7 @@ class RequestListRow extends React.Component {
             axios({
                 method: 'delete',
                 url: '/api/requests/decline',
-                data: JSON.stringify(this.props.request)
+                data: this.props.request
             }).then(function(response) {
                 if (response.data.success) {
                     this.props.changeStatusText(Responses.declineSuccess);

@@ -2,7 +2,6 @@
 
 import Button from '../components/button.jsx';
 import CommandList from '../components/commandList.jsx';
-import Endpoint from '../constants/endpoints';
 import TextInput from '../components/textInput.jsx';
 
 import axios from 'axios';
@@ -36,7 +35,7 @@ export default class RequestPage extends React.Component {
             axios
                 .post(
                     '/api/requests',
-                    JSON.stringify(request)
+                    request
                 )
                 .then(function(response) {
                     if (response.data.success) {
@@ -47,6 +46,7 @@ export default class RequestPage extends React.Component {
                     }
                 }.bind(this))
                 .catch(function(error) {
+                    console.log(error);
                     this.setState({ statusText: 'Unable to add request.' });
                 }.bind(this))
     }
